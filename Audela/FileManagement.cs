@@ -15,23 +15,51 @@ namespace Audela
             {
                 Directory.CreateDirectory(GenerationSettings.path);
             }
-            if (!Directory.Exists(GenerationSettings.path + "/Stars"))
+            if (!Directory.Exists(GenerationSettings.path + "/Galaxy"))
             {
-                Directory.CreateDirectory(GenerationSettings.path + "/Stars");
+                Directory.CreateDirectory(GenerationSettings.path + "/Galaxy");
+            }
+            if (!Directory.Exists(CelestialBody.Planet.Terrain.Map.mapPath))
+            {
+                Directory.CreateDirectory(CelestialBody.Planet.Terrain.Map.mapPath);
+            }
+
+            if (!Directory.Exists(CelestialBody.Planet.Terrain.Map.cachePath))
+            {
+                Directory.CreateDirectory(CelestialBody.Planet.Terrain.Map.cachePath);
+            }
+        }
+
+        public static void CreateSpecific(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
             }
         }
 
         public static void Clean(DirectoryInfo directoryInfo)
         {
-            foreach (FileInfo file in directoryInfo.GetFiles())
+            if (directoryInfo.Exists)
             {
-                file.Delete();
+                foreach (FileInfo file in directoryInfo.GetFiles())
+                {
+                    file.Delete();
+                    
+                }
+
+                foreach (DirectoryInfo subfolder in directoryInfo.GetDirectories())
+                {
+                    Clean(subfolder);
+                }
             }
 
-            foreach (DirectoryInfo subfolder in directoryInfo.GetDirectories())
+            try
             {
-                Clean(subfolder);
+                directoryInfo.Delete();
             }
+            catch (Exception e)
+            { }
         }
     }
 }

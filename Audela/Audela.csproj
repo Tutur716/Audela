@@ -54,32 +54,60 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PlanetaryProcessor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdParty\PlanetaryProcessor\PlanetaryProcessor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CelestialBody\Body.cs" />
+    <Compile Include="CelestialBody\BodyType.cs" />
+    <Compile Include="CelestialBody\Galaxy\NewKerbol.cs" />
+    <Compile Include="CelestialBody\Galaxy\Systems.cs" />
+    <Compile Include="CelestialBody\Palette.cs" />
+    <Compile Include="CelestialBody\Parameter.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\Map.cs" />
+    <Compile Include="CelestialBody\Planet\Planet.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\Mods\HeightColorMap.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\Mods\VertexHeightOffset.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\Mods\VertexSimplexHeightAbsolute.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\Mods\VertexSimplexNoiseColor.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\PQS.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\PQSEnum.cs" />
+    <Compile Include="CelestialBody\Planet\Solid\Terrain\TerrainParser.cs" />
+    <Compile Include="CelestialBody\Star\Data\Fraction\LuminosityTypesDistribution.cs" />
+    <Compile Include="CelestialBody\Star\Data\Fraction\SpectralTypeDistribution.cs" />
+    <Compile Include="CelestialBody\Star\Data\LuminosityTypes.cs" />
+    <Compile Include="CelestialBody\Star\Data\SpectralTypes.cs" />
+    <Compile Include="CelestialBody\Star\Data\SpectralTypesData.cs" />
+    <Compile Include="CelestialBody\Star\Star.cs" />
+    <Compile Include="CelestialBody\Templates.cs" />
     <Compile Include="Entry.cs" />
     <Compile Include="GenerationSettings.cs" />
-    <Compile Include="Generation\Body.cs" />
-    <Compile Include="Generation\BodyType.cs" />
-    <Compile Include="Generation\Galaxy.cs" />
-    <Compile Include="Generation\CreateConfiguration.cs" />
-    <Compile Include="Generation\Data\Fraction\SpectralTypeDistribution.cs" />
-    <Compile Include="Generation\Data\LuminosityTypes.cs" />
-    <Compile Include="Generation\Data\Fraction\LuminosityTypesDistribution.cs" />
-    <Compile Include="Generation\Data\SpectralTypesData.cs" />
-    <Compile Include="Generation\Data\SpectralTypes.cs" />
-    <Compile Include="Generation\RandomBySeed.cs" />
+    <Compile Include="CelestialBody\Planet\Stepping\Step.cs" />
+    <Compile Include="CelestialBody\Planet\Stepping\Steps.cs" />
+    <Compile Include="RandomBySeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Generation\Star.cs" />
     <Compile Include="FileManagement.cs" />
-    <Compile Include="ThirdParty\ConfigNode.cs" />
-    <Compile Include="ThirdParty\ConfigNodeReader.cs" />
-    <Compile Include="ThirdParty\ConfigNodeWriter.cs" />
+    <Compile Include="ThirdParty\CondifNodeParser\ConfigNode.cs" />
+    <Compile Include="ThirdParty\CondifNodeParser\ConfigNodeReader.cs" />
+    <Compile Include="ThirdParty\CondifNodeParser\ConfigNodeWriter.cs" />
+    <Compile Include="UI\Drawer.cs" />
+    <Compile Include="UI\Panel.cs" />
+    <Compile Include="UI\Window.cs" />
+    <Compile Include="UsefulValues.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CelestialBody\Planet\Giant\Gas\" />
+    <Folder Include="CelestialBody\Planet\Giant\Solid\" />
+    <Folder Include="ThirdParty\PlanetaryProcessor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
